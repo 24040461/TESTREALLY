@@ -21,22 +21,22 @@ public class apphooks extends driverFactory {
     public void launchNotePad() throws MalformedURLException, InterruptedException {
         driver = setUp();
     }
-    @After
-    public void cleanUp() throws InterruptedException {
-        driver.quit();
-    }
-    @After(order = 1)
-    public void screenshot(Scenario scenario) {
-        if(scenario.isFailed()){
-            String screenshotName = scenario.getName().replaceAll(" ", "_");
-            byte [] sourcePath = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(sourcePath, "image/png", screenshotName);
-        }
-    }
-    @AfterAll
-    public static void end() throws IOException {
-        Runtime.getRuntime().exec("cmd /c taskkill /F /IM WinAppDriver.exe");
-        Runtime.getRuntime().exec("cmd /c taskkill /F /IM Notepad.exe");
+//     @After
+//     public void cleanUp() throws InterruptedException {
+//         driver.quit();
+//     }
+//     @After(order = 1)
+//     public void screenshot(Scenario scenario) {
+//         if(scenario.isFailed()){
+//             String screenshotName = scenario.getName().replaceAll(" ", "_");
+//             byte [] sourcePath = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+//             scenario.attach(sourcePath, "image/png", screenshotName);
+//         }
+//     }
+//     @AfterAll
+//     public static void end() throws IOException {
+//         Runtime.getRuntime().exec("cmd /c taskkill /F /IM WinAppDriver.exe");
+//         Runtime.getRuntime().exec("cmd /c taskkill /F /IM Notepad.exe");
 
-    }
+//     }
 }
